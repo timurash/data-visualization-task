@@ -1,6 +1,6 @@
 <template>
   <div class="block-header">
-    <span class="block-title">Data visualization task</span>
+    <span class="block-title">DATA VISUALIZATION</span>
   </div>
   <div class="main-container">
     <nav class="app-sidebar">
