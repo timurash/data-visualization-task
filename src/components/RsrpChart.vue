@@ -1,5 +1,5 @@
 <template>
-  <Chart type="line" :data="lineChartData" :options="basicOptions" />
+  <Chart type="line" :data="chartData" :options="basicOptions" />
 </template>
 
 <script>
@@ -13,6 +13,9 @@ export default {
       required: false,
       default: () => "",
     },
+  },
+  emits: {
+    "bts-list-update": null,
   },
   data() {
     return {
@@ -46,7 +49,7 @@ export default {
     };
   },
   computed: {
-    lineChartData() {
+    chartData() {
       return {
         datasets: [
           {
@@ -104,11 +107,10 @@ export default {
     parsedData.sort((a, b) => new Date(b.x) - new Date(a.x));
 
     this.parsedData = parsedData;
-    this.lineChartData.datasets[0].data = parsedData;
   },
   methods: {
     onSelectedBtsChange() {
-      this.lineChartData.datasets[0].data = this.parsedData.filter(
+      this.chartData.datasets[0].data = this.parsedData.filter(
         (x) => x.BTS === this.selectedBts
       );
     },

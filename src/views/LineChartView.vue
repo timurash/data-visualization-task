@@ -45,7 +45,7 @@
 import RsrpChart from "@/components/RsrpChart";
 
 export default {
-  name: "LineChart",
+  name: "LineChartView",
   components: {
     RsrpChart,
   },

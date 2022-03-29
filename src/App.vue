@@ -1,14 +1,23 @@
 <template>
   <div class="block-header">
-    <span class="block-title">DATA VISUALIZATION</span>
+    <span class="block-title">SOME CHARTS</span>
   </div>
   <div class="main-container">
     <nav class="app-sidebar">
+      <router-link to="/overview">
+        <Button>Overview</Button>
+      </router-link>
       <router-link to="/rsrp-chart">
         <Button>RSRP line chart</Button>
       </router-link>
       <router-link to="/bts-chart">
         <Button>BTS circle chart</Button>
+      </router-link>
+      <router-link to="/records-chart">
+        <Button>Records bar chart</Button>
+      </router-link>
+      <router-link to="/map">
+        <Button>Points on map</Button>
       </router-link>
     </nav>
     <div class="app-content">
@@ -41,7 +50,7 @@ export default {
   justify-content: space-between;
 
   .app-sidebar {
-    width: 30%;
+    width: 20%;
     display: flex;
     flex-direction: column;
     border: 1px solid var(--surface-border);

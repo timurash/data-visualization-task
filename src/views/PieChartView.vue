@@ -1,6 +1,6 @@
 <template>
   <Card>
-    <template #header> BTS chart </template>
+    <template #title> BTS chart (TOP-3 by count) </template>
     <template #content>
       <BtsChart />
     </template>
@@ -17,4 +17,19 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+::v-deep {
+  .p-card-body {
+    padding: 2rem;
+  }
+
+  .p-card-content {
+    display: flex;
+    justify-content: center;
+  }
+
+  .p-card-title {
+    text-align: start;
+  }
+}
+</style>
