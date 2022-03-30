@@ -6,7 +6,7 @@
 import { initialDataset } from "@/datasets";
 
 export default {
-  name: "RecordsChart",
+  name: "RecordsByDayChart",
   data() {
     return {
       parsedData: [],

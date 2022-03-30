@@ -29,3 +29,5 @@ app.component("Chart", Chart);
 app.component("Dropdown", Dropdown);
 
 app.mount("#app");
+
+import "./assets/primevue-overrides.scss";

@@ -23,7 +23,7 @@ import { yandexMap, ymapMarker } from "vue-yandex-maps";
 import { initialDataset } from "@/datasets";
 
 export default {
-  name: "PointsOnMap",
+  name: "BtsMap",
   components: { yandexMap, ymapMarker },
   data() {
     return {

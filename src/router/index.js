@@ -2,29 +2,29 @@ import { createRouter, createWebHashHistory } from "vue-router";
 
 const routes = [
   {
-    path: "/overview",
+    path: "/",
     name: "overview",
     component: () => import("../views/ProjectOverview.vue"),
   },
   {
     path: "/rsrp-chart",
     name: "rsrp-chart",
-    component: () => import("../views/LineChartView.vue"),
+    component: () => import("../views/RsrpChartView.vue"),
   },
   {
     path: "/bts-chart",
     name: "bts-chart",
-    component: () => import("../views/PieChartView.vue"),
+    component: () => import("../views/BtsChartView.vue"),
   },
   {
     path: "/records-chart",
     name: "records-chart",
-    component: () => import("../views/BarChartView.vue"),
+    component: () => import("../views/RecordsByDayChartView.vue"),
   },
   {
-    path: "/map",
-    name: "map",
-    component: () => import("../views/MapView.vue"),
+    path: "/bts-map",
+    name: "bts-map",
+    component: () => import("../views/BtsMapView.vue"),
   },
 ];
 

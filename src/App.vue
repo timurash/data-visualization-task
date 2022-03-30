@@ -1,24 +1,40 @@
 <template>
-  <div class="block-header">
-    <span class="block-title">SOME CHARTS</span>
+  <div class="app-header">
+    <span>SOME CHARTS</span>
+    <Button
+      class="p-button-text"
+      icon="pi pi-github"
+      label="Github"
+      @click="goToGithub"
+    />
   </div>
   <div class="main-container">
     <nav class="app-sidebar">
-      <router-link to="/overview">
-        <Button>Overview</Button>
-      </router-link>
-      <router-link to="/rsrp-chart">
-        <Button>RSRP line chart</Button>
-      </router-link>
-      <router-link to="/bts-chart">
-        <Button>BTS circle chart</Button>
-      </router-link>
-      <router-link to="/records-chart">
-        <Button>Records bar chart</Button>
-      </router-link>
-      <router-link to="/map">
-        <Button>Points on map</Button>
-      </router-link>
+      <Button
+        class="p-button-text p-button-secondary navigation-button"
+        @click="goToPage('/')"
+        >Overview
+      </Button>
+      <Button
+        class="p-button-text p-button-secondary navigation-button"
+        @click="goToPage('/rsrp-chart')"
+        >RSRP line chart
+      </Button>
+      <Button
+        class="p-button-text p-button-secondary navigation-button"
+        @click="goToPage('/bts-chart')"
+        >BTS circle chart
+      </Button>
+      <Button
+        class="p-button-text p-button-secondary navigation-button"
+        @click="goToPage('/records-chart')"
+        >Records by day chart
+      </Button>
+      <Button
+        class="p-button-text p-button-secondary navigation-button"
+        @click="goToPage('/bts-map')"
+        >BTS points on map
+      </Button>
     </nav>
     <div class="app-content">
       <router-view />
@@ -29,20 +45,29 @@
 <script>
 export default {
   name: "App",
+  methods: {
+    goToPage(page) {
+      this.$router.push(page);
+    },
+    goToGithub() {
+      window.open(
+        "https://github.com/timurash/data-visualization-task",
+        "_blank"
+      );
+    },
+  },
 };
 </script>
 
 <style scoped lang="scss">
-.block-header {
+.app-header {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
+  align-items: center;
   padding: 1rem 2rem;
   border: 1px solid var(--surface-border);
-
-  .block-title {
-    font-size: 21px;
-    font-weight: 700;
-  }
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 .main-container {
@@ -51,12 +76,15 @@ export default {
 
   .app-sidebar {
     width: 20%;
+    min-width: 200px;
     display: flex;
     flex-direction: column;
     border: 1px solid var(--surface-border);
 
-    button {
-      margin: 1rem;
+    .navigation-button {
+      padding: 1.2rem 2.3rem;
+      font-size: 1.25rem;
+      font-weight: 500;
     }
   }
 

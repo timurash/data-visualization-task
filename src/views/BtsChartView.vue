@@ -10,7 +10,7 @@
 <script>
 import BtsChart from "@/components/BtsChart";
 export default {
-  name: "PieChartView",
+  name: "BtsChartView",
   components: {
     BtsChart,
   },
@@ -18,18 +18,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
-::v-deep {
-  .p-card-body {
-    padding: 2rem;
-  }
+:deep(.p-card-body) {
+  padding: 2rem;
+}
 
-  .p-card-content {
-    display: flex;
-    justify-content: center;
-  }
-
-  .p-card-title {
-    text-align: start;
-  }
+:deep(.p-card-content) {
+  display: flex;
+  justify-content: center;
 }
 </style>

@@ -30,7 +30,7 @@ export default {
         },
         layout: {
           padding: {
-            top: 0,
+            top: 20,
           },
         },
         legend: {

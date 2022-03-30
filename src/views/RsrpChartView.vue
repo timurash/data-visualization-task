@@ -1,7 +1,11 @@
 <template>
   <Card>
-    <template #title>
-      RSRP chart
+    <template #title> RSRP chart </template>
+    <template #content>
+      <RsrpChart
+        :selected-bts="selectedBts"
+        @bts-list-update="onBtsListUpdate"
+      />
       <div class="filter-container">
         <label>Filter data on BTS:</label>
         <Dropdown
@@ -32,12 +36,6 @@
         />
       </div>
     </template>
-    <template #content>
-      <RsrpChart
-        :selected-bts="selectedBts"
-        @bts-list-update="onBtsListUpdate"
-      />
-    </template>
   </Card>
 </template>
 
@@ -45,7 +43,7 @@
 import RsrpChart from "@/components/RsrpChart";
 
 export default {
-  name: "LineChartView",
+  name: "RsrpChartView",
   components: {
     RsrpChart,
   },
@@ -77,16 +75,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
-::v-deep {
-  .p-card-body {
-    padding: 2rem;
-  }
-
-  .p-card-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+:deep(.p-card-body) {
+  padding: 2rem;
 }
 
 .filter-container {
@@ -95,6 +85,7 @@ export default {
   padding: 1rem;
   display: flex;
   align-items: center;
+  justify-content: end;
 
   label {
     margin-right: 0.5rem;
