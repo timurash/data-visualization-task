@@ -3,22 +3,24 @@
     :height="400"
     type="pie"
     :data="chartData"
-    :options="basicOptions"
+    :options="chartOptions"
     style="width: 50%"
   />
 </template>
 
 <script>
 import { initialDataset } from "@/datasets";
+import { prepareDataForBtsTop3Chart } from "@/utils";
 
 export default {
   name: "BtsChart",
   data() {
     return {
-      values: [],
-      labels: [],
-      parsedData: [],
-      basicOptions: {
+      preparedDataset: {
+        values: [],
+        labels: [],
+      },
+      chartOptions: {
         plugins: {
           legend: {
             position: "bottom",
@@ -46,43 +48,19 @@ export default {
   computed: {
     chartData() {
       return {
-        labels: this.labels,
+        labels: this.preparedDataset.labels,
         datasets: [
           {
             backgroundColor: ["#42A5F5", "#66BB6A", "#FFA726"],
             hoverBackgroundColor: ["#64B5F6", "#81C784", "#FFB74D"],
-            data: this.values,
+            data: this.preparedDataset.values,
           },
         ],
       };
     },
   },
   mounted() {
-    const counts = {};
-
-    initialDataset.forEach((record) => {
-      counts[record.BTS] = counts[record.BTS] ? counts[record.BTS] + 1 : 1;
-    });
-
-    const countsArray = [];
-
-    Object.keys(counts).forEach((key) => {
-      countsArray.push({
-        name: key,
-        count: counts[key],
-      });
-    });
-
-    countsArray.sort((a, b) => b.count - a.count);
-
-    const slicedCountsArray = countsArray.slice(0, 3);
-
-    slicedCountsArray.forEach((x) => {
-      this.values.push(x.count);
-      this.labels.push(x.name);
-    });
+    this.preparedDataset = prepareDataForBtsTop3Chart(initialDataset);
   },
 };
 </script>
-
-<style scoped></style>

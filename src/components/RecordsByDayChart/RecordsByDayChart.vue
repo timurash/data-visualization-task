@@ -4,12 +4,13 @@
 
 <script>
 import { initialDataset } from "@/datasets";
+import { prepareDataForRecordsByDayChart } from "@/utils";
 
 export default {
   name: "RecordsByDayChart",
   data() {
     return {
-      parsedData: [],
+      preparedDataset: [],
       chartOptions: {
         plugins: {
           legend: {
@@ -44,42 +45,14 @@ export default {
         datasets: [
           {
             backgroundColor: "#42A5F5",
-            data: this.parsedData,
+            data: this.preparedDataset,
           },
         ],
       };
     },
   },
   mounted() {
-    let parsedData = [];
-
-    initialDataset.forEach((x) => {
-      const [date] = x.Time.split(" ");
-      const [day, month, year] = date.split(".");
-
-      const dateValue = new Date(Number(year), Number(month) - 1, Number(day));
-
-      parsedData.push(dateValue);
-    });
-
-    const counts = {};
-
-    parsedData.forEach((date) => {
-      counts[date] = counts[date] ? counts[date] + 1 : 1;
-    });
-
-    const parsedData2 = [];
-
-    Object.keys(counts).forEach((key) => {
-      parsedData2.push({
-        x: new Date(key),
-        y: counts[key],
-      });
-    });
-
-    this.parsedData = parsedData2;
+    this.preparedDataset = prepareDataForRecordsByDayChart(initialDataset);
   },
 };
 </script>
-
-<style scoped></style>

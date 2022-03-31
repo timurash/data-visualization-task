@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import PointsOnMap from "@/components/BtsMap";
+import PointsOnMap from "@/components/BtsMap/BtsMap";
 
 export default {
   name: "BtsMapView",

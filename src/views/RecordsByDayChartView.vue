@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import RecordsByDayChart from "@/components/RecordsByDayChart";
+import RecordsByDayChart from "@/components/RecordsByDayChart/RecordsByDayChart";
 
 export default {
   name: "RecordsByDayChartView",

@@ -4,8 +4,8 @@
     <template #content>
       <h3>Description</h3>
       <p>
-        This is personal project for leveling skills. Here you can find 4 types
-        of visualization, based on one dataset:
+        This is a personal project to improve developer skills. Here you can
+        find 4 types of visualization, based on one dataset:
       </p>
       <ul>
         <li>Line chart</li>

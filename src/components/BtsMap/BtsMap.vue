@@ -20,7 +20,9 @@
 
 <script>
 import { yandexMap, ymapMarker } from "vue-yandex-maps";
+
 import { initialDataset } from "@/datasets";
+import { prepareDataForBtsMap } from "@/utils";
 
 export default {
   name: "BtsMap",
@@ -37,15 +39,7 @@ export default {
     };
   },
   mounted() {
-    const uniqueBtsCoordinates = {};
-
-    initialDataset.forEach((record) => {
-      if (!uniqueBtsCoordinates[record.BTS]) {
-        uniqueBtsCoordinates[record.BTS] = [record.Latitude, record.Longitude];
-      }
-    });
-
-    this.markers = Object.values(uniqueBtsCoordinates);
+    this.markers = prepareDataForBtsMap(initialDataset);
     this.isDataParsed = true;
   },
   methods: {

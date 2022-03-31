@@ -4,7 +4,7 @@
 
 ### Description
 
-This is personal project for leveling skills. Here you can find 4 types
+This is a personal project to improve developer skills. Here you can find 4 types
 of visualization, based on one dataset:
 
 - Line chart

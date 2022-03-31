@@ -6,45 +6,19 @@
         :selected-bts="selectedBts"
         @bts-list-update="onBtsListUpdate"
       />
-      <div class="filter-container">
-        <label>Filter data on BTS:</label>
-        <Dropdown
-          v-model="selectedBts"
-          class="filter-dropdown"
-          placeholder="Select option"
-          :options="btsList"
-          scroll-height="400px"
-          option-value="name"
-        >
-          <template #value="slotProps">
-            <span v-if="slotProps?.value">
-              {{ slotProps?.value }}
-            </span>
-            <span v-else>
-              {{ slotProps.placeholder }}
-            </span>
-          </template>
-          <template #option="slotProps">
-            <span>{{ getOptionLabel(slotProps) }}</span>
-          </template>
-        </Dropdown>
-        <Button
-          class="p-button-text"
-          icon="pi pi-times-circle"
-          :disabled="isClearFilterButtonDisabled"
-          @click="onFilterClear"
-        />
-      </div>
+      <BtsDropdownFilter v-model="selectedBts" :bts-list="btsList" />
     </template>
   </Card>
 </template>
 
 <script>
-import RsrpChart from "@/components/RsrpChart";
+import RsrpChart from "@/components/RsrpChart/RsrpChart";
+import BtsDropdownFilter from "@/components/RsrpChart/BtsDropdownFilter";
 
 export default {
   name: "RsrpChartView",
   components: {
+    BtsDropdownFilter,
     RsrpChart,
   },
   data() {
@@ -53,22 +27,10 @@ export default {
       btsList: [],
     };
   },
-  computed: {
-    isClearFilterButtonDisabled() {
-      return !this.selectedBts.length;
-    },
-  },
+
   methods: {
     onBtsListUpdate(btsList) {
       this.btsList = btsList;
-    },
-    onFilterClear() {
-      this.selectedBts = "";
-    },
-    getOptionLabel(slotProps) {
-      return (
-        slotProps.option.name + " (" + slotProps.option.count + " records)"
-      );
     },
   },
 };
@@ -77,27 +39,15 @@ export default {
 <style scoped lang="scss">
 :deep(.p-card-body) {
   padding: 2rem;
+  height: 100vh;
+  min-height: 400px;
+  max-height: 700px;
 }
 
-.filter-container {
-  font-size: 1rem;
-  width: 35%;
-  padding: 1rem;
+:deep(.p-card-content) {
+  padding: 2rem;
+  height: 100%;
   display: flex;
-  align-items: center;
-  justify-content: end;
-
-  label {
-    margin-right: 0.5rem;
-  }
-
-  .filter-dropdown {
-    flex: 1;
-    text-align: start;
-  }
-
-  button {
-    margin-left: 0.5rem;
-  }
+  flex-direction: column;
 }
 </style>

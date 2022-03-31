@@ -1,6 +1,6 @@
 <template>
   <Card>
-    <template #title> BTS chart (TOP-3 by count) </template>
+    <template #title> BTS chart (TOP-3 by records count) </template>
     <template #content>
       <BtsChart />
     </template>
@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import BtsChart from "@/components/BtsChart";
+import BtsChart from "@/components/BtsChart/BtsChart";
 export default {
   name: "BtsChartView",
   components: {
