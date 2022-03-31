@@ -90,6 +90,7 @@ export default {
 
   .app-content {
     flex: 1 0 auto;
+    padding: 2rem;
   }
 }
 </style>

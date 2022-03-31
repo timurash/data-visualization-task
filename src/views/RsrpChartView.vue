@@ -27,7 +27,6 @@ export default {
       btsList: [],
     };
   },
-
   methods: {
     onBtsListUpdate(btsList) {
       this.btsList = btsList;

@@ -53,12 +53,10 @@ export default {
   },
   methods: {
     getOptionLabel(slotProps) {
-      return (
-        slotProps.option.name + " (" + slotProps.option.count + " records)"
-      );
+      return `${slotProps.option.name} (${slotProps.option.count} records)`;
     },
-    onValueChange(value) {
-      this.$emit("update:modelValue", value.value);
+    onValueChange(event) {
+      this.$emit("update:modelValue", event?.value || "");
     },
   },
 };
@@ -66,7 +64,6 @@ export default {
 
 <style scoped lang="scss">
 .filter-container {
-  font-size: 1rem;
   padding: 1rem;
   display: flex;
   align-items: center;
@@ -79,7 +76,6 @@ export default {
   .filter-dropdown {
     flex: 1;
     text-align: start;
-    width: 50%;
   }
 
   button {

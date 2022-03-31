@@ -16,22 +16,22 @@
       <h3>Technology stack</h3>
       <ul>
         <li>
-          <a href="https://vuejs.org" target="_blank"
-            >Vue 3 + Vue CLI + Vue Router</a
-          >
+          <a href="https://vuejs.org" target="_blank">
+            Vue 3 + Vue CLI + Vue Router
+          </a>
         </li>
         <li>
-          <a href="https://www.primefaces.org/primevue/#/" target="_blank"
-            >PrimeVue 3</a
-          >
+          <a href="https://www.primefaces.org/primevue/#/" target="_blank">
+            PrimeVue 3
+          </a>
         </li>
         <li>
           <a href="https://www.chartjs.org/" target="_blank">Chart.js 3</a>
         </li>
         <li>
-          <a href="https://vue-yandex-maps.github.io/guide/" target="_blank"
-            >Vue Yandex Maps</a
-          >
+          <a href="https://vue-yandex-maps.github.io/guide/" target="_blank">
+            Vue Yandex Maps
+          </a>
         </li>
       </ul>
     </template>

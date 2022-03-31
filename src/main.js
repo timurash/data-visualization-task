@@ -15,6 +15,8 @@ import "primevue/resources/primevue.min.css";
 import "primevue/resources/themes/lara-light-blue/theme.css";
 import "primeicons/primeicons.css";
 
+import "./assets/primevue-overrides.scss";
+
 // Date adapter for Chart.js library
 import "chartjs-adapter-date-fns";
 
@@ -29,5 +31,3 @@ app.component("Chart", Chart);
 app.component("Dropdown", Dropdown);
 
 app.mount("#app");
-
-import "./assets/primevue-overrides.scss";
