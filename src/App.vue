@@ -1,6 +1,6 @@
 <template>
   <div class="app-header">
-    <span>SOME CHARTS</span>
+    <span>DATA VISUALIZATION</span>
     <Button
       class="p-button-text"
       icon="pi pi-github"
@@ -73,10 +73,10 @@ export default {
 .main-container {
   display: flex;
   justify-content: space-between;
+  flex: 1;
 
   .app-sidebar {
-    width: 20%;
-    min-width: 200px;
+    min-width: 260px;
     display: flex;
     flex-direction: column;
     border: 1px solid var(--surface-border);

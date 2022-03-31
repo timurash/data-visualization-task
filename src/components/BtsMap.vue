@@ -31,7 +31,6 @@ export default {
       controls: ["zoomControl"],
       markers: [],
       settings: {
-        // apiKey: "e3558c2d-fdf6-48bb-adce-9c3514f7e877",
         controls: [],
         lang: "en_US",
       },
@@ -61,6 +60,7 @@ export default {
 };
 </script>
 
+<!--suppress CssUnusedSymbol -->
 <style>
 .ymap-class {
   height: 600px;
