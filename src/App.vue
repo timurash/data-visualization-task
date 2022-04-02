@@ -10,31 +10,47 @@
   </div>
   <div class="main-container">
     <nav class="app-sidebar">
-      <Button
-        class="p-button-text p-button-secondary navigation-button"
-        @click="goToPage('/')"
-        >Overview
-      </Button>
-      <Button
-        class="p-button-text p-button-secondary navigation-button"
-        @click="goToPage('/rsrp-chart')"
-        >RSRP line chart
-      </Button>
-      <Button
-        class="p-button-text p-button-secondary navigation-button"
-        @click="goToPage('/bts-chart')"
-        >BTS circle chart
-      </Button>
-      <Button
-        class="p-button-text p-button-secondary navigation-button"
-        @click="goToPage('/records-chart')"
-        >Records by day chart
-      </Button>
-      <Button
-        class="p-button-text p-button-secondary navigation-button"
-        @click="goToPage('/bts-map')"
-        >BTS points on map
-      </Button>
+      <router-link v-slot="{ isActive }" class="router-link" to="/">
+        <Button
+          class="p-button-secondary navigation-button"
+          :class="isActive ? 'p-button-outlined' : 'p-button-text'"
+        >
+          Overview
+        </Button>
+      </router-link>
+      <router-link v-slot="{ isActive }" class="router-link" to="/rsrp-chart">
+        <Button
+          class="p-button-secondary navigation-button"
+          :class="isActive ? 'p-button-outlined' : 'p-button-text'"
+        >
+          RSRP line chart
+        </Button>
+      </router-link>
+      <router-link v-slot="{ isActive }" class="router-link" to="/bts-chart">
+        <Button
+          class="p-button-secondary navigation-button"
+          :class="isActive ? 'p-button-outlined' : 'p-button-text'"
+          >BTS circle chart
+        </Button>
+      </router-link>
+      <router-link
+        v-slot="{ isActive }"
+        class="router-link"
+        to="/records-chart"
+      >
+        <Button
+          class="p-button-secondary navigation-button"
+          :class="isActive ? 'p-button-outlined' : 'p-button-text'"
+          >Records by day chart
+        </Button>
+      </router-link>
+      <router-link v-slot="{ isActive }" class="router-link" to="/bts-map">
+        <Button
+          class="p-button-secondary navigation-button"
+          :class="isActive ? 'p-button-outlined' : 'p-button-text'"
+          >BTS points on map
+        </Button>
+      </router-link>
     </nav>
     <div class="app-content">
       <router-view />
@@ -82,15 +98,27 @@ export default {
     border: 1px solid var(--surface-border);
 
     .navigation-button {
-      padding: 1.2rem 2.3rem;
+      padding: 1rem 2rem;
       font-size: 1.25rem;
       font-weight: 500;
     }
   }
 
   .app-content {
-    flex: 1 0 auto;
+    flex: 1 1 auto;
     padding: 2rem;
+  }
+}
+
+.router-link {
+  text-decoration: none;
+
+  button {
+    width: 100%;
+  }
+
+  :deep(.p-button.p-button-secondary:enabled:focus) {
+    box-shadow: none;
   }
 }
 </style>

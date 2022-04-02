@@ -4,7 +4,7 @@
     type="pie"
     :data="chartData"
     :options="chartOptions"
-    style="width: 50%"
+    class="circle-chart"
   />
 </template>
 
@@ -64,3 +64,9 @@ export default {
   },
 };
 </script>
+
+<style scoped lang="scss">
+.circle-chart {
+  width: 40%;
+}
+</style>
