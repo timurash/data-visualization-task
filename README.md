@@ -1,24 +1,21 @@
-# graphics-test-project
+# Data visualization task
 
-## Project setup
-```
-npm install
-```
+### [Live demo](https://timurash.github.io/data-visualization-task/#/)
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+### Description
 
-### Compiles and minifies for production
-```
-npm run build
-```
+This is a personal project to improve developer skills. Here you can find 4 types
+of visualization, based on one dataset:
 
-### Lints and fixes files
-```
-npm run lint
-```
+- Line chart
+- Circle chart
+- Bar chart
+- Map with points
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Technology stack
+
+- [Vue 3 + Vue CLI + Vue Router](https://vuejs.org)
+- [PrimeVue 3](https://www.primefaces.org/primevue/#/")
+- [Chart.js 3](https://www.chartjs.org/)
+- [Vue Yandex Maps](https://vue-yandex-maps.github.io/guide/)
+

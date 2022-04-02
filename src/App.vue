@@ -1,14 +1,55 @@
 <template>
-  <div class="block-header">
-    <span class="block-title">Data visualization task</span>
+  <div class="app-header">
+    <span>DATA VISUALIZATION</span>
+    <Button
+      class="p-button-text"
+      icon="pi pi-github"
+      label="Github"
+      @click="goToGithub"
+    />
   </div>
   <div class="main-container">
     <nav class="app-sidebar">
-      <router-link to="/rsrp-chart">
-        <Button>RSRP line chart</Button>
+      <router-link v-slot="{ isActive }" class="router-link" to="/">
+        <Button
+          class="p-button-secondary navigation-button"
+          :class="isActive ? 'p-button-outlined' : 'p-button-text'"
+        >
+          Overview
+        </Button>
       </router-link>
-      <router-link to="/bts-chart">
-        <Button>BTS circle chart</Button>
+      <router-link v-slot="{ isActive }" class="router-link" to="/rsrp-chart">
+        <Button
+          class="p-button-secondary navigation-button"
+          :class="isActive ? 'p-button-outlined' : 'p-button-text'"
+        >
+          RSRP line chart
+        </Button>
+      </router-link>
+      <router-link v-slot="{ isActive }" class="router-link" to="/bts-chart">
+        <Button
+          class="p-button-secondary navigation-button"
+          :class="isActive ? 'p-button-outlined' : 'p-button-text'"
+          >BTS circle chart
+        </Button>
+      </router-link>
+      <router-link
+        v-slot="{ isActive }"
+        class="router-link"
+        to="/records-chart"
+      >
+        <Button
+          class="p-button-secondary navigation-button"
+          :class="isActive ? 'p-button-outlined' : 'p-button-text'"
+          >Records by day chart
+        </Button>
+      </router-link>
+      <router-link v-slot="{ isActive }" class="router-link" to="/bts-map">
+        <Button
+          class="p-button-secondary navigation-button"
+          :class="isActive ? 'p-button-outlined' : 'p-button-text'"
+          >BTS points on map
+        </Button>
       </router-link>
     </nav>
     <div class="app-content">
@@ -20,39 +61,64 @@
 <script>
 export default {
   name: "App",
+  methods: {
+    goToPage(page) {
+      this.$router.push(page);
+    },
+    goToGithub() {
+      window.open(
+        "https://github.com/timurash/data-visualization-task",
+        "_blank"
+      );
+    },
+  },
 };
 </script>
 
 <style scoped lang="scss">
-.block-header {
+.app-header {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
+  align-items: center;
   padding: 1rem 2rem;
   border: 1px solid var(--surface-border);
-
-  .block-title {
-    font-size: 21px;
-    font-weight: 700;
-  }
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 .main-container {
   display: flex;
   justify-content: space-between;
+  flex: 1;
 
   .app-sidebar {
-    width: 30%;
+    min-width: 260px;
     display: flex;
     flex-direction: column;
     border: 1px solid var(--surface-border);
 
-    button {
-      margin: 1rem;
+    .navigation-button {
+      padding: 1rem 2rem;
+      font-size: 1.25rem;
+      font-weight: 500;
     }
   }
 
   .app-content {
-    flex: 1 0 auto;
+    flex: 1 1 auto;
+    padding: 2rem;
+  }
+}
+
+.router-link {
+  text-decoration: none;
+
+  button {
+    width: 100%;
+  }
+
+  :deep(.p-button.p-button-secondary:enabled:focus) {
+    box-shadow: none;
   }
 }
 </style>
